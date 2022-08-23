@@ -56,7 +56,7 @@ void draw(){
     text("Juego de precisión con voz", 800, 200);
     text("Haga clic para iniciar", 800, 300);
   }
-  else if(juego1exe == true){
+  else if(juego1exe == true && juego2exe == false){
     g.play();
   }
   else if(juego2exe == true && gameoverW == false && gameoverL == false){
@@ -134,6 +134,14 @@ void draw(){
       }
       
   } 
+  
+  if(gameoverW==true || gameoverL==true){
+    if(mousePressed){
+          gameoverW = false;
+          txt1= 0;
+          txt2 = 10;
+        }
+  }
 }
 
 void cargarimagenes(){
