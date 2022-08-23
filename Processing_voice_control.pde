@@ -15,6 +15,7 @@ int txt2 = 10;
 boolean gameoverW = false;
 boolean gameoverL = false;
 boolean hit = false;
+boolean ejecutando = false;
 
 void setup(){
   bid = 0;
@@ -58,6 +59,7 @@ void draw(){
   }
   else if(juego1exe == true && juego2exe == false){
     g.play();
+    ejecutando = true;
   }
   else if(juego2exe == true && gameoverW == false && gameoverL == false){
     b = b + vel;       
@@ -151,12 +153,12 @@ void cargarimagenes(){
 }
 
 void mousePressed(){
-  if((mouseX > width/8) && (mouseX<width/2) && (mouseY>height/8) && (mouseY<7*height/8)){
+  if((mouseX > width/8) && (mouseX<width/2) && (mouseY>height/8) && (mouseY<7*height/8) && ejecutando == false){
     g = new Game();
     juego1exe = true;
     colorMode(HSB, 100);
   }
-  else if((mouseX > width/2+10) && (mouseX<7*width/8) && (mouseY>height/8) && (mouseY<7*height/8)){
+  else if((mouseX > width/2+10) && (mouseX<7*width/8) && (mouseY>height/8) && (mouseY<7*height/8) && juego1exe == false){
     cargarimagenes();
     dinosaurioImg.resize(500, 0);
     bombaImg.resize(50, 0);
